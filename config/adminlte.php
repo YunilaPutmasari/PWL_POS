@@ -294,6 +294,7 @@ return [
     */
 
     'menu' => [
+
         // Navbar items:
         [
             'type' => 'navbar-search',
@@ -332,6 +333,12 @@ return [
             'text' => 'change_password',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
+        ],
+        // Kategori menu
+        [
+            'text' => 'Kategori',
+            'url' => '/kategori',
+            'icon' => 'fas fa-fw fa-list',
         ],
         [
             'text' => 'multilevel',
@@ -387,6 +394,7 @@ return [
             'icon_color' => 'cyan',
             'url' => '#',
         ],
+
     ],
 
     /*
