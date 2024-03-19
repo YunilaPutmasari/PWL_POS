@@ -58,3 +58,5 @@ Route::get('/kategori', [KategoriController::class, 'index'])->name('kategori.in
 
 Route::get('/kategori/edit{id}', [KategoriController::class, 'edit'])->name('kategori.edit');
 Route::put('/kategori/edit_simpan{id}', [KategoriController::class, 'edit_simpan'])->name('kategori.edit_simpan');
+
+Route::get('/kategori/delete{id}', [KategoriController::class, 'delete'])->name('kategori.delete');
