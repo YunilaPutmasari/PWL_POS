@@ -2,7 +2,7 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'kategori')
+@section('subtitle', 'Edit kategori')
 @section('content_header_title', 'Kategori')
 @section('content_header_subtitle','Edit' )
 
@@ -15,15 +15,17 @@
                 <h3>Edit Kategori Baru</h3>
             </div>
 
-            <form method="post" action="../kategori">
+            <form method="POST" action="{{ route('kategori.edit_simpan',$kategori->kategori_id) }}">
+                {{ csrf_field() }}
+                {{method_field('PUT')}}
             <div class="card-body">
                 <div class="form-group">
                     <label for="kodeKategori">Kode Kategori</label>
-                <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="Masukkan kode kategori" value="{{$data->kode_kategori}}">
+                <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="Masukkan kode kategori" value="{{$kategori->kategori_kode}}">
                 </div>
                 <div class="form-group">
                     <label for="namaKategori">Nama Kategori</label>
-                <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="Masukkan Nama Kategori" value="{{$data->nama_kategori}}">
+                <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="Masukkan Nama Kategori" value="{{$kategori->kategori_nama}}">
                 </div>
             </div>
             <div class="card-footer">

@@ -28,14 +28,14 @@ class KategoriController extends Controller
     public function edit($id)
     {
         $kategori = KategoriModel::find($id);
-        return view('kategori_edit', ['data' => $kategori]);
+        return view('kategori.edit', ['kategori' => $kategori]);
     }
 
     public function edit_simpan($id, Request $request)
     {
         $kategori = KategoriModel::find($id);
-        $kategori->kode_kategori = $request->kode_kategori;
-        $kategori->nama_kategori = $request->nama_kategori;
+        $kategori->kategori_kode = $request->kodeKategori;
+        $kategori->kategori_nama = $request->namaKategori;
 
         $kategori->save();
         return redirect('/kategori');
