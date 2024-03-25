@@ -10,6 +10,8 @@ class POSController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
     public function index()
     {
         //fungsi eloquent menampilkan data menggunakan pagination

@@ -1,4 +1,10 @@
-@extends('m_user/template')
+@extends('layouts.app')
+
+{{-- Customize layout sections --}}
+
+@section('subtitle', 'User')
+@section('content_header_title', 'Home')
+@section('content_header_subtitle','User' )
 
 @section('content')
     <div class="row mt-5 mb-5">
@@ -63,3 +69,6 @@
         </div>
     </form>
 @endsection
+@push('scripts')
+
+@endpush
