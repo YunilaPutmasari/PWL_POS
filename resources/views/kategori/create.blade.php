@@ -28,12 +28,12 @@
             @csrf
             <div class="card-body">
                 <div class="form-group">
-                    <label for="kodeKategori">Kode Kategori</label>
+                    <label for="kategori_kode">Kode Kategori</label>
                     <!-- Memindahkan elemen input ke bawah label -->
-                    <input id="kodeKategori"
+                    <input id="kategori_kode"
                      type="text" 
                      name="kategori_kode" 
-                     {{-- placeholder="Masukkan Kode Kategori"  --}}
+                     placeholder="Masukkan Kode Kategori" 
                      class="form-control @error('kategori_kode') is-invalid @enderror">
                     <!-- Menampilkan pesan error di bawah input -->
                     @error('kategori_kode')
@@ -42,8 +42,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="namaKategori">Nama Kategori</label>
-                    <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="Masukkan Nama Kategori">
+                    <label for="kategori_nama">Nama Kategori</label>
+                    <input type="text" class="form-control" id="kategori_nama" name="kategori_nama" placeholder="Masukkan Nama Kategori">
                 </div>
             </div>
             <div class="card-footer">

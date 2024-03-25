@@ -22,17 +22,17 @@ class LevelController extends Controller
 
     public function store(Request $request)
     {
+
+        $request->validate([
+            'level_kode' => 'bail|required|unique:m_levels|max:255',
+            'level_nama' => 'required',
+
+        ]);
         LevelModel::create([
-            'level_kode' => $request->kodeLevel,
-            'level_nama' => $request->namaLevel,
+            'level_kode' => $request->level_kode,
+            'level_nama' => $request->level_nama,
             // Sesuaikan dengan atribut lainnya sesuai kebutuhan dalam model Level
         ]);
-        // $request->validate([
-        //     'title' => 'bail|required|unique:posts|max:255',
-        //     'body' => 'required',
-
-        // ]);
-
         return redirect('/level');
     }
 

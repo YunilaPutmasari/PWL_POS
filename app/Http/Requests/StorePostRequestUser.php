@@ -5,14 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\RedirectResponse;
 
-class StorePostRequest extends FormRequest
+class StorePostRequestUser extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,12 +23,11 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //kategori
-            'kategori_kode' => 'required',
-            'kategori_nama' => 'required',
-
-
-
+            //user
+            'username' => 'required',
+            'nama' => 'required',
+            'passsword' => 'required',
+            'level_id' => 'required',
 
         ];
     }
@@ -40,14 +39,13 @@ class StorePostRequest extends FormRequest
         $validated = $request->validated();
 
         // retrieve a portion of the validated input data...
-        $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
-        $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
+
 
         // // store the post..
-        return redirect('/kategori');
-
+        $validated = $request->safe()->only(['username', 'nama', 'passsword', 'level_id']);
+        $validated = $request->safe()->except(['username', 'nama', 'passsword', 'level_id']);
 
         // store the post..
-
+        return redirect('/user');
     }
 }

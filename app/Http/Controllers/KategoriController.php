@@ -19,11 +19,16 @@ class KategoriController extends Controller
     }
     public function store(Request $request)
     {
+        // $validated = $request->validate([
+
+        //     'kategori_kode' => 'required',
+        //     'kategori_nama' => 'required',
+        // ]);
         $request->validate([
 
-            // 'kategori_kode' => 'bail|required|unique:posts|max:255',
-            'kategori_kode' => 'required',
-            'kategori_nama' => 'required',
+            'kategori_kode' => 'bail|required|unique:m_kategoris|max:255',
+            'kategori_nama' => 'bail|required|max:255',
+
         ]);
 
         // Membuat data kategori baru

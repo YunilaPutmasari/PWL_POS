@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -94,3 +95,6 @@ Route::get('/Level/edit/{id}', [LevelController::class, 'edit'])->name('level.ed
 Route::put('/Level/edit_simpan/{id}', [LevelController::class, 'edit_simpan'])->name('level.edit_simpan');
 
 Route::get('/Level/delete/{id}', [LevelController::class, 'delete'])->name('level.delete');
+
+
+Route::resource('m_user', POSController::class);
