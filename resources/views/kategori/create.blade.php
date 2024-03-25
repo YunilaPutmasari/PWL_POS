@@ -4,26 +4,46 @@
 
 @section('subtitle', 'kategori')
 @section('content_header_title', 'Kategori')
-@section('content_header_subtitle','Create' )
+@section('content_header_subtitle', 'Create')
 
-{{--Content body: main Page content--}}
+{{-- Content body: main Page content --}}
 
 @section('content')
-    <div class="container">
-        <div class="card card-primary">
-            <div class="card-header">
-                <h3>Buat Kategori Baru</h3>
-            </div>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+<div class="container">
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3>Buat Kategori Baru</h3>
+        </div>
 
-            <form method="post" action="../kategori">
+        <form method="post" action="../kategori">
             <div class="card-body">
                 <div class="form-group">
                     <label for="kodeKategori">Kode Kategori</label>
-                <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="">
+                    <!-- Memindahkan elemen input ke bawah label -->
+                    <input id="kodeKategori"
+                     type="text" 
+                     name="kodeKategori" 
+                     placeholder="Masukkan Kode Kategori" 
+                     class="form-control 
+                     @error('kodeKategori') is-invalid @enderror">
+                    <!-- Menampilkan pesan error di bawah input -->
+                    @error('kodeKategori')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
+
                 <div class="form-group">
                     <label for="namaKategori">Nama Kategori</label>
-                <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="">
+                    <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="Masukkan Nama Kategori">
                 </div>
             </div>
             <div class="card-footer">
@@ -31,6 +51,6 @@
             </div>
         </form>
     </div>
-</div>      
-@endsection
+</div>
 
+@endsection

@@ -19,13 +19,30 @@ class KategoriController extends Controller
     }
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'kategori_kode' => 'required',
-            'kategori_nama' => 'required',
-            // KategoriModel::create([
-            //     'kategori_kode' => $request->kodeKategori,
-            //     'kategori_nama' => $request->namaKategori,
+        $request->validate([
+            'title' => 'bail|required|unique:posts|max:255',
+            'body' => 'required',
+
         ]);
+        // $validated = $request->validate([
+        //     'kategori_kode' => 'required',
+        //     'kategori_nama' => 'required',
+        // ]);
+        // KategoriModel::create([
+        //     'kategori_kode' => $request->kodeKategori,
+        //     'kategori_nama' => $request->namaKategori,
+        // ]);
+
+
+
+        // $validateData = $request->validate([
+        //     'title' => ['required', 'unique:posts', 'max:255'],
+        //     'body' => ['required'],
+        // ]);
+        // $validateData = $request->validateWithBag('post', [
+        //     'title' => ['required', 'unique:posts', 'max:255'],
+        //     'body' => ['required'],
+        // ]);
         return redirect('/kategori');
     }
     public function edit($id)
