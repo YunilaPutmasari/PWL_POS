@@ -10,21 +10,21 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form method="POST" action="../level">
+        <form method="post" action="../Level">
             @csrf
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="level_id">Level ID</label>
                         <input type="text" class="form-control" id="level_id" name="level_id" placeholder="Enter Level ID">
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="kodeLevel">Level Kode</label>
+                        <input type="text" class="form-control" id="kodeLevel" name="kodeLevel" placeholder="Enter level kode">
                     </div>
                     <div class="form-group">
-                        <label for="level_kode">Level Kode</label>
-                        <input type="text" class="form-control" id="level_kode" name="level_kode" placeholder="Enter level kode">
-                    </div>
-                    <div class="form-group">
-                        <label for="level_nama">Level Nama</label>
-                        <input type="text" class="form-control" id="level_nama" name="level_nama" placeholder="Enter level nama">
+                        <label for="namaLevel">Level Nama</label>
+                        <input type="text" class="form-control" id="namaLevel" name="namaLevel" placeholder="Enter level nama">
                     </div>
 
                 </div>

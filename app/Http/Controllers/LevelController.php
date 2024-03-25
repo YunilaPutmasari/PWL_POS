@@ -27,6 +27,11 @@ class LevelController extends Controller
             'level_nama' => $request->namaLevel,
             // Sesuaikan dengan atribut lainnya sesuai kebutuhan dalam model Level
         ]);
+        // $request->validate([
+        //     'title' => 'bail|required|unique:posts|max:255',
+        //     'body' => 'required',
+
+        // ]);
 
         return redirect('/level');
     }

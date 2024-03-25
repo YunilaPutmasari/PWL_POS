@@ -20,31 +20,33 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'bail|required|unique:posts|max:255',
-            'body' => 'required',
 
+            // 'kategori_kode' => 'bail|required|unique:posts|max:255',
+            'kategori_kode' => 'required',
+            'kategori_nama' => 'required',
         ]);
-        // $validated = $request->validate([
-        //     'kategori_kode' => 'required',
-        //     'kategori_nama' => 'required',
-        // ]);
-        // KategoriModel::create([
-        //     'kategori_kode' => $request->kodeKategori,
-        //     'kategori_nama' => $request->namaKategori,
-        // ]);
 
+        // Membuat data kategori baru
+        KategoriModel::create([
+            'kategori_kode' => $request->kategori_kode,
+            'kategori_nama' => $request->kategori_nama,
+        ]);
 
-
-        // $validateData = $request->validate([
-        //     'title' => ['required', 'unique:posts', 'max:255'],
-        //     'body' => ['required'],
-        // ]);
-        // $validateData = $request->validateWithBag('post', [
-        //     'title' => ['required', 'unique:posts', 'max:255'],
-        //     'body' => ['required'],
-        // ]);
+        // Redirect ke halaman kategori setelah berhasil menyimpan
         return redirect('/kategori');
     }
+
+
+    // $validateData = $request->validate([
+    //     'title' => ['required', 'unique:posts', 'max:255'],
+    //     'body' => ['required'],
+    // ]);
+    // $validateData = $request->validateWithBag('post', [
+    //     'title' => ['required', 'unique:posts', 'max:255'],
+    //     'body' => ['required'],
+    // ]);
+
+
     public function edit($id)
     {
         $kategori = KategoriModel::find($id);

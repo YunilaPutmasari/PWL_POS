@@ -25,18 +25,18 @@
         </div>
 
         <form method="post" action="../kategori">
+            @csrf
             <div class="card-body">
                 <div class="form-group">
                     <label for="kodeKategori">Kode Kategori</label>
                     <!-- Memindahkan elemen input ke bawah label -->
                     <input id="kodeKategori"
                      type="text" 
-                     name="kodeKategori" 
-                     placeholder="Masukkan Kode Kategori" 
-                     class="form-control 
-                     @error('kodeKategori') is-invalid @enderror">
+                     name="kategori_kode" 
+                     {{-- placeholder="Masukkan Kode Kategori"  --}}
+                     class="form-control @error('kategori_kode') is-invalid @enderror">
                     <!-- Menampilkan pesan error di bawah input -->
-                    @error('kodeKategori')
+                    @error('kategori_kode')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>

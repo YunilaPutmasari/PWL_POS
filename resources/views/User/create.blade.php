@@ -11,7 +11,7 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body">
-        <form method="POST" action="../user">
+        <form method="post" action="../User">
             @csrf
             <div class="row">
                 <div class="col-sm-6">
