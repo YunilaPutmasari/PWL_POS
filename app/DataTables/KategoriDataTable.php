@@ -27,6 +27,7 @@ class KategoriDataTable extends DataTable
                     '<a href="' . route('kategori.edit', $kategori->kategori_id) . '" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>' .
                     '<a href="' . route('kategori.delete', $kategori->kategori_id) . '" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>';
 
+
             })
             ->setRowId('id');
     }

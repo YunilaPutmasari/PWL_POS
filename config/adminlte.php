@@ -340,6 +340,18 @@ return [
             'url' => '/kategori',
             'icon' => 'fas fa-fw fa-list',
         ],
+        // User menu
+        [
+            'text' => 'User',
+            'url' => '/User',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        // Level menu
+        [
+            'text' => 'Level',
+            'url' => '/Level',
+            'icon' => 'fas fa-fw fa-list',
+        ],
         [
             'text' => 'multilevel',
             'icon' => 'fas fa-fw fa-share',

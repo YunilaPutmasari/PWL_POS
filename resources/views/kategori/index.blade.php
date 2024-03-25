@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">Manage Kategori</div>
            <div class="card-body">
-               <a href="{{ route('create') }}" class="btn btn-primary">+ Tambah Kategori Baru</a>
+               <a href="{{ route('kategori.create') }}" class="btn btn-primary">+ Tambah Kategori Baru</a>
            </div>
             <div class="card-body">
                 
@@ -20,6 +20,7 @@
             </div>
         </div>
     </div>
+    
 @endsection
 
 @push('scripts')
