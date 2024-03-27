@@ -334,6 +334,7 @@ return [
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'Menu'],
         // Kategori menu
         [
             'text' => 'Kategori',
@@ -350,6 +351,12 @@ return [
         [
             'text' => 'Level',
             'url' => '/Level',
+            'icon' => 'fas fa-fw fa-list',
+        ],
+        // m_user menu
+        [
+            'text' => 'm_user',
+            'url' => '/m_user',
             'icon' => 'fas fa-fw fa-list',
         ],
         [

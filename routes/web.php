@@ -5,6 +5,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,3 +99,6 @@ Route::get('/Level/delete/{id}', [LevelController::class, 'delete'])->name('leve
 
 
 Route::resource('m_user', POSController::class);
+
+//JS-7
+Route::get('/', [WelcomeController::class, 'index']);
