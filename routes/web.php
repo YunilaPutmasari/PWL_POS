@@ -6,6 +6,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\StokController;
 
 
 /*
@@ -141,13 +142,13 @@ Route::group(['prefix' => 'level'], function () {
 });
 
 //Fitur stok User
-Route::group(['prefix' => 'barang'], function () {
-    Route::get('/', [LevelController::class, 'index']);          //menampilkan halaman awal user
-    Route::post('/list', [LevelController::class, 'list']);      //menampilkan data user dalam bentuk json untuk datatables
-    Route::get('/create', [LevelController::class, 'create']);   //menampilkan halaman form tambah user
-    Route::post('/', [LevelController::class, 'store']);         //menyimpan data user baru
-    Route::get('/{id}', [LevelController::class, 'show']);       //menampilkan detail user
-    Route::get('/{id}/edit', [LevelController::class, 'edit']);  //menampilkan halaman form edit user
-    Route::put('/{id}', [LevelController::class, 'update']);     //menyimpan perubahan data user
-    Route::delete('/{id}', [LevelController::class, 'destroy']); //menghapus data user
+Route::group(['prefix' => 'stok'], function () {
+    Route::get('/', [StokController::class, 'index']);          //menampilkan halaman awal user
+    Route::post('/list', [StokController::class, 'list']);      //menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [StokController::class, 'create']);   //menampilkan halaman form tambah user
+    Route::post('/', [StokController::class, 'store']);         //menyimpan data user baru
+    Route::get('/{id}', [StokController::class, 'show']);       //menampilkan detail user
+    Route::get('/{id}/edit', [StokController::class, 'edit']);  //menampilkan halaman form edit user
+    Route::put('/{id}', [StokController::class, 'update']);     //menyimpan perubahan data user
+    Route::delete('/{id}', [StokController::class, 'destroy']); //menghapus data user
 });
