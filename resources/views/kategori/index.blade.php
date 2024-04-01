@@ -45,22 +45,23 @@
             @if (session('error'))
                 <div class="alert alert-danger">{{ session('error')}}</div>
             @endif
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Filter:</label>
                         <div class="col-3">
-                            {{-- <select class="form-control" id="kategori_id" name="kategori_id" required>
+                            <select class="form-control" id="kategori_id" name="kategori_id" required>
                                 <option value="">- Semua -</option>
                                 @foreach($kategori as $item)
-                                <option value="{{ $item->kategori_id }}">{{ $item->kategori_nama }}</option>
+                                    <option value="{{ $item->kategori_id }}">{{ $item->kategori_nama }}</option>
                                 @endforeach
-                            </select> --}}
-                            <small class="Form-text text-muted">Kategori</small>
+                            </select>
+                            <small class="form-text text-muted">Pilih Kategori</small>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+            
             <table class="table table-bordered table-striped table-hover table-sm" id="table_kategori">
         
                 <thead>
@@ -96,12 +97,7 @@
                         orderable: false,
                         searchable: false
                     },
-                    // {
-                    //     data: "kategori_id",
-                    //     className: "",
-                    //     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
-                    //     searchable: true  // searchable: true, jika ingin kolom ini bisa dicari
-                    // },
+               
                     {
                         data: "kategori_kode",
                         className: "",
