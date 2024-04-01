@@ -2,29 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KategoriModel;
-use App\DataTables\KategoriDataTable;
+use App\Models\StokModel;
+use App\DataTables\StokDataTable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Contracts\DataTable;
 use Yajra\DataTables\Facades\DataTables;
 
-class KategoriController extends Controller
+class StokController extends Controller
 {
 
     public function list(Request $request)
     {
-        $kategori = KategoriModel::select('kategori_id', 'kategori_kode', 'kategori_nama');
-        //Filter data user berdasarkan kategori_id
-        if ($request->kategori_id) {
-            $kategori->where('kategori_id', $request->kategori_id);
+        $stok = StokController::select('stok_id', 'barang_id', 'user_id', 'stok_tanggal', 'stok_jumlah');
+        //Filter data user berdasarkan stk_id
+        if ($request->stok_id) {
+            $stok->where('stok_id', $request->stok_id);
         }
-        return DataTables::of($kategori)
+        return DataTables::of($stok)
             ->addIndexColumn()  //menambahkan kolom index/ no urut (default nama kolom: DT_RowIndex)
-            ->addColumn('aksi', function ($kategori) {
-                $btn = '<a href="' . url('/kategori/' . $kategori->kategori_id) . '" class="btn btn-info btn-sm">Detail</a> ';
-                $btn .= '<a href="' . url('/kategori/' . $kategori->kategori_id . '/edit') . '" class="btn btn-warning btn-sm">Edit</a> ';
-                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/kategori/' . $kategori->kategori_id) . '">' . csrf_field() . method_field('DELETE') .
+            ->addColumn('aksi', function ($stok) {
+                $btn = '<a href="' . url('/stok/' . $stok->stok_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/kategori/' . $stok->stok_id . '/edit') . '" class="btn btn-warning btn-sm">Edit</a> ';
+                $btn .= '<form class="d-inline-block" method="POST" action="' . url('/kategori/' . $stok->stok_id) . '">' . csrf_field() . method_field('DELETE') .
                     '<button type="submit" class="btn btn-danger btn-sm"
                         onclick="return confirm(\'Apakah Anda yakin menghapus data ini?\');">Hapus</button></form>';
                 return $btn;
@@ -35,16 +35,16 @@ class KategoriController extends Controller
     public function index(
     ) {
         $breadcrumb = (object) [
-            'title' => 'Daftar Kategori',
-            'list' => ['Home', 'kategori']
+            'title' => 'Daftar stok',
+            'list' => ['Home', 'stok']
         ];
 
         $page = (object) [
-            'title' => 'Daftar kategori yang terdaftar dalam sistem'
+            'title' => 'Daftar stok yang terdaftar dalam sistem'
         ];
 
-        $activeMenu = 'kategori';  //set menu yang sedang aktiv
-        $kategori = KategoriModel::all();     //ambil data untuk filter 
+        $activeMenu = 'stok';  //set menu yang sedang aktiv
+        $kategori = StokModel::all();     //ambil data untuk filter 
         return view('kategori.index', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
@@ -184,32 +184,3 @@ class KategoriController extends Controller
 
 }
 
-// public function index()
-// {
-
-// $data = [
-//     'kategori_kode' => 'SNK',
-//     'kategori_nama' => 'Snack/Makanan ringan',
-//     'created_at' => now()
-
-// ];
-
-// DB::table('m_kategoris')->insert($data);
-// return 'insert data baru berhasil';
-
-
-// $row = DB::table('m_kategoris')->where('kategori_kode', 'SNK')->update(['kategori_nama' => 'camilan']);
-// return 'Update data berhasil. Jumlah data yang diupdate : ' . $row . 'baris';
-
-// $row = DB::table('m_kategoris')->where('kategori_kode', 'SNK')->delete();
-// return 'delete data berhasil. Jumlah data yang di delete : ' . $row . 'baris';
-
-
-
-//----menampilkan data yang ada di table m_kategori-----
-
-//         $data = DB::table('m_kategoris')->get();
-//         return view('kategori', ['data' => $data]);
-
-
-//     }
