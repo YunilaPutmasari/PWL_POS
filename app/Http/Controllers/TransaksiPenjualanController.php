@@ -114,6 +114,7 @@ class TransaksiPenjualanController extends Controller
         $penjualan = PenjualanModel::find($id);
         $detailTransaksi = DetailPenjualanModel::where('penjualan_id', $id)->get();
 
+        ($detailTransaksi);
         $breadcrumb = (object) [
             'title' => 'Detail Transaksi Penjualan',
             'list' => ['Home', 'Transaksi Penjualan', 'Detail']
@@ -200,6 +201,8 @@ class TransaksiPenjualanController extends Controller
 
 
     //Menghapus data barang
+
+
     public function destroy(string $id)
     {
         $penjualan = PenjualanModel::find($id);
@@ -208,14 +211,17 @@ class TransaksiPenjualanController extends Controller
         }
 
         try {
-            $penjualan->delete();
-            // Hapus juga detail transaksi penjualan terkait
+            // Hapus detail transaksi penjualan terkait
             DetailPenjualanModel::where('penjualan_id', $id)->delete();
-            PenjualanModel::where('penjualan_id', $id)->delete();
+
+            // Hapus penjualan itu sendiri
+            $penjualan->delete();
+
             return redirect('/penjualan')->with('success', 'Data penjualan berhasil dihapus');
         } catch (\Exception $e) {
             //Jika terjadi error ketika menghapus data, redirect kembali ke halaman dengan membawa pesan error
             return redirect('/penjualan')->with('error', 'Data penjualan gagal dihapus karena masih terdapat tabel lain yang terkai dengan data ini');
         }
     }
+
 }

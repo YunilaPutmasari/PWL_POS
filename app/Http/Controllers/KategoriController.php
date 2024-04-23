@@ -36,7 +36,7 @@ class KategoriController extends Controller
     ) {
         $breadcrumb = (object) [
             'title' => 'Daftar Kategori',
-            'list' => ['Home', 'kategori']
+            'list' => ['Home', 'Kategori']
         ];
 
         $page = (object) [
@@ -45,10 +45,12 @@ class KategoriController extends Controller
 
         $activeMenu = 'kategori';  //set menu yang sedang aktiv
         $kategori = KategoriModel::all();     //ambil data untuk filter 
+
         return view('kategori.index', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'kategori' => $kategori,
         ]);
     }
     public function create()

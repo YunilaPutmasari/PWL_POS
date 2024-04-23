@@ -15,7 +15,7 @@
             @if (session('error'))
                 <div class="alert alert-danger">{{ session('error')}}</div>
             @endif
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Filter:</label>
@@ -30,13 +30,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <table class="table table-bordered table-striped table-hover table-sm" id="table_stok">
                 <thead>
                     <tr>
                         <th>stok_id</th>
-                        <th>Barang_id</th>
-                        <th>User_id</th>
+                        <th>nama barang</th>
+                        <th>username</th>
                         <th>stok_tanggal</th>
                         <th>stok_jumlah</th>
                         <th>Aksi</th>
@@ -71,13 +71,13 @@
                         searchable: false
                     },
                     {
-                        data: "barang_id",
+                        data: "barang_nama",
                         className: "",
                         orderable: true,
                         searchable: true
                     },
                     {
-                        data: "user_id",
+                        data: "username",
                         className: "",
                         orderable: true,
                         searchable: true

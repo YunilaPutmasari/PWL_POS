@@ -45,7 +45,7 @@
             @if (session('error'))
                 <div class="alert alert-danger">{{ session('error')}}</div>
             @endif
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Filter:</label>
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
             
             <table class="table table-bordered table-striped table-hover table-sm" id="table_kategori">
         
@@ -88,7 +88,10 @@
                 ajax: {
                     "url": "{{ url('kategori/list') }}",
                     "dataType": "json",
-                    "type": "POST"
+                    "type": "POST",
+                    "data":function (d) {
+                        d.kategori_id = $('#kategori_id').val();
+                    }
                 },
                 columns: [
                     {
@@ -118,6 +121,7 @@
                     }
                 ]
             });
+            
             $('#kategori_id').on('change', function() {
                 dataKategori.ajax.reload();
             });

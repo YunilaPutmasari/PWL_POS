@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BarangModel;
 use App\Models\StokModel;
 use Illuminate\Http\Request;
+use App\Models\UserModel;
 use Yajra\DataTables\Facades\DataTables;
 
 class StokController extends Controller
@@ -22,6 +23,7 @@ class StokController extends Controller
 
         $activeMenu = 'stok'; //set menu yang sedang aktif
         $stok = StokModel::all(); //UNTUK FILTERING
+        $user = UserModel::all();
         return view('stok.index', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
@@ -32,7 +34,11 @@ class StokController extends Controller
 
     public function list(Request $request)
     {
-        $stok = StokModel::with(['user', 'barang'])->select('*');
+        $stok = StokModel::with(['user', 'barang'])
+            ->join('m_users', 't_stoks.user_id', '=', 'm_users.user_id')
+            ->join('m_barangs', 't_stoks.barang_id', '=', 'm_barangs.barang_id')
+            ->select('m_barangs.barang_nama', 'm_users.username', 't_stoks.*');
+
 
         //Filter data stok berdasarkan stok_id
         if ($request->stok_id) {
