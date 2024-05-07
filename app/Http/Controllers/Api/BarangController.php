@@ -12,28 +12,20 @@ class BarangController extends Controller
     {
         return BarangModel::all();
     }
-
-
     public function store(Request $request)
     {
         $barang = BarangModel::create($request->all());
         return response()->json($barang, 201);
     }
-
-
     public function show(BarangModel $barang)
     {
         return $barang;
     }
-
-
     public function update(Request $request, BarangModel $barang)
     {
         $barang->update($request->all());
         return $barang;
     }
-
-
     public function destroy(BarangModel $barang)
     {
         $barang->delete();
