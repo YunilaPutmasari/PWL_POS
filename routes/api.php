@@ -53,3 +53,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');
 
+// Route::post('/barang1', App\Http\Controllers\Api\BarangController::class)->name('barang1');
+// Route::post('/barang', BarangController::class);
+
