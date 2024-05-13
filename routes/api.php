@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\KategoriController;
+use App\Http\Controllers\Api\PenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,13 @@ Route::get('/barangs/{barang}', [BarangController::class, 'show']);
 Route::put('/barangs/{barang}', [BarangController::class, 'update']);
 Route::delete('/barangs/{barang}', [BarangController::class, 'destroy']);
 
+
+Route::get('/penjualans', [PenjualanController::class, 'index']);
+Route::post('/penjualans', [PenjualanController::class, 'store']);
+Route::get('/penjualans/{penjualan}', [PenjualanController::class, 'show']);
+Route::put('/penjualans/{penjualan}', [PenjualanController::class, 'update']);
+Route::delete('/penjualans/{penjualan}', [PenjualanController::class, 'destroy']);
+
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
 Route::post('/logout', App\Http\Controllers\Api\LogoutController::class)->name('logout');
@@ -52,6 +60,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register1');
+
 
 // Route::post('/barang1', App\Http\Controllers\Api\BarangController::class)->name('barang1');
 // Route::post('/barang', BarangController::class);
